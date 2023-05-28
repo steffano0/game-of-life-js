@@ -1,33 +1,18 @@
-function initializeGrid (size = 32) {
-    grid.innerHTML = "";
-
-    // Set the CSS grid properties
-    grid.style.gridTemplateColumns = `repeat(${size}, 10px)`;
-    grid.style.gridTemplateRows = `repeat(${size}, 10px)`;
-
-    // Create the grid cells
-    for (let i = 0; i < size * size; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        grid.appendChild(cell);
-    }
-}
-
 // Get the grid and start button elements
-const grid = document.querySelector('.grid');
-const startBtn = document.getElementById('startBtn');
-const applyBtn = document.getElementById('applyBtn');
-const gridSizeInput = document.getElementById('gridSize');
+const grid = document.getElementById('grid');
+const playBtn = document.getElementById('play-btn');
+const applyBtn = document.getElementById('apply-btn');
+const gridSizeInput = document.getElementById('grid-size');
 
 // Create the initial grid
 let gridSize = parseInt(gridSizeInput.value);
-createGrid(gridSize);
+initializeGrid(gridSize);
 
 // Add click event listener to toggle cell state
 grid.addEventListener('click', toggleCellState);
 
 // Start button click event listener
-startBtn.addEventListener('click', startGame);
+playBtn.addEventListener('click', startGameOfLife);
 
 // Apply button click event listener
 applyBtn.addEventListener('click', applyGridSize);
@@ -39,12 +24,12 @@ function toggleCellState(event) {
 }
 
 // Function to start the Game of Life
-function startGame() {
+function startGameOfLife() {
     const livingCells = getLivingCells();
     simulateGameOfLife(livingCells);
 }
 
-// Function to retrieve the living cells from the grid
+
 function getLivingCells() {
     const aliveCells = grid.querySelectorAll('.alive');
     return Array.from(aliveCells).map((cell) => {
@@ -55,28 +40,34 @@ function getLivingCells() {
     });
 }
 
-// Function to apply the grid size change
+
 function applyGridSize() {
     const newGridSize = parseInt(gridSizeInput.value);
     if (newGridSize !== gridSize) {
         gridSize = newGridSize;
-        createGrid(gridSize);
+        initializeGrid(gridSize);
     }
 }
 
-// Function to create the grid
-function initializeGrid(size = 32) {
+
+function initializeGrid(size=32) {
     // Clear the current grid
-    grid.innerHTML = '';
-
-    // Set the CSS grid properties
-    grid.style.gridTemplateColumns = `repeat(${size}, 10px)`;
-    grid.style.gridTemplateRows = `repeat(${size}, 10px)`;
-
-    // Create the grid cells
-    for (let i = 0; i < size * size; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        grid.appendChild(cell);
+    grid.innerHTML = ""
+    
+    for (let i = 0; i < size; i++) {
+        let column = document.createElement("div");
+        column.className = "column";
+        for (let j = 0; j < size; j++) {
+            let row = document.createElement("div");
+            row.className = "row";
+            column.appendChild(row);
+        }
+        grid.appendChild(column);
     }
+    cells = Array.from(document.querySelectorAll(".row"));
 }
+    
+
+
+
+

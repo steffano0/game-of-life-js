@@ -15,12 +15,51 @@ h1 {
 
 
 
-/*GRID*/
-.grid {
-    display: grid;
-    gap: 1px;
+#container {
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    user-select: none;
+    padding-right: 150px;
 }
 
+.tools {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/*GRID*/
+.grid-box {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#grid {
+    display: flex;
+    height: 480px;
+    width: 480px;
+    
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+   flex: 1;
+}
+   
+
+/* CELLS */
 .cell {
     width: 10px;
     height: 10px;
@@ -40,10 +79,6 @@ h1 {
 }
    
   
-
-
-
-
 /* FOOTER */
 .footer {
   position: absolute;
