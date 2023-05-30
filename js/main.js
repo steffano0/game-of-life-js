@@ -1,7 +1,8 @@
-// Get the grid and button elements
+// Grid and button elements
 const grid = document.getElementById('grid');
 const playBtn = document.getElementById('play-btn');
 const applyBtn = document.getElementById('apply-btn');
+const clearBtn = document.getElementById('clear-btn');
 const gridSizeInput = document.getElementById('grid-size');
 
 // Auxiliary variables
@@ -12,15 +13,13 @@ let dead = 0;
 let isPlaying = false;
 let interval;
 
-// Create the initial grid
+// Initial grid
 let gridSize = parseInt(gridSizeInput.value);
 initializeGrid(gridSize);
 
-    
-// Start button click event listener
+// Buttons event listeners
 playBtn.addEventListener('click', startGameOfLife);
-
-// Apply button click event listener
+clearBtn.addEventListener('click', clearGrid);
 applyBtn.addEventListener('click', applyGridSize);
 
 // Function to toggle cell state
@@ -57,7 +56,7 @@ function startGameOfLife() {
       }
 }
 
-
+//Game functions
 function applyGridSize() {
     const newGridSize = parseInt(gridSizeInput.value);
     if (newGridSize !== gridSize) {
@@ -89,9 +88,8 @@ function initializeGrid(size) {
         }
         columnElements.forEach(element => element.addEventListener('click', toggleCellState));
     }
-    console.log(cellsMatrix);
-    console.log(cells);
 }
+   
 
 function setInitialCellState () {
     for(let y = 0; y < gridSize; y++) {
