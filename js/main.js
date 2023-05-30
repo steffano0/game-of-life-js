@@ -9,6 +9,8 @@ let cellsMatrix;
 let cells;
 let alive = 1;
 let dead = 0;
+let isPlaying = false;
+let interval;
 
 // Create the initial grid
 let gridSize = parseInt(gridSizeInput.value);
@@ -27,14 +29,33 @@ function toggleCellState(event) {
     cell.classList.toggle('alive');
 }
 
+function clearGrid() {
+    clearInterval(interval); // Stop the game if it's currently playing
+    isPlaying = false;
+    playBtn.textContent = 'Play';
+    
+    // Reset cell states and update UI
+    for (let y = 0; y < gridSize; y++) {
+      for (let x = 0; x < gridSize; x++) {
+        cells[y][x].classList.remove('alive');
+        cellsMatrix[y][x] = dead;
+      }
+    }
+  }
+
 // Function to start the Game of Life
 function startGameOfLife() {
-    setInitialCellState();
-    setInterval(getNextGeneration, 100);
-    
+    if (!isPlaying) {
+        isPlaying = true;
+        playBtn.textContent = 'Stop';
+        setInitialCellState();
+        interval = setInterval(getNextGeneration, 100);
+      } else {
+        isPlaying = false;
+        playBtn.textContent = 'Play';
+        clearInterval(interval);
+      }
 }
-
-
 
 
 function applyGridSize() {
@@ -68,9 +89,6 @@ function initializeGrid(size) {
         }
         columnElements.forEach(element => element.addEventListener('click', toggleCellState));
     }
-    /* cells.forEach(cell => cell.addEventListener('click', toggleCellState)); */
-    
-   /* cells = Array.from(document.querySelectorAll(".row")); */
     console.log(cellsMatrix);
     console.log(cells);
 }
