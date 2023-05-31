@@ -35,7 +35,6 @@ h1 {
     display: flex;
     flex-direction: column;
     
-    
 }
 
 #grid {
@@ -73,7 +72,7 @@ h1 {
 
 /* BUTTONS */
 .buttons {
-    width: 180px;
+    width: 10rem;
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -131,11 +130,10 @@ h1 {
 }
 
 
-
-
 /*INPUT*/
 input{
     height: 2.5rem;
+    width: 3.5rem;
     border-radius: 5px;
     text-align: center;
     font-size: large;

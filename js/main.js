@@ -112,15 +112,17 @@ function setNextCellState () {
 }
             
 function countLivingNeighbors (x, y) {
-    let count = 0;
-        for (dy = -1; dy <= 1; dy++) {
-          for (dx = -1; dx <= 1; dx++) {
-            let nx = (x + dx + gridSize) % gridSize, ny = (y + dy + gridSize) % gridSize;
-            count = count + cellsMatrix[ny][nx];
-          }
+  let count = 0;
+      for (dy = -1; dy <= 1; dy++) {
+        for (dx = -1; dx <= 1; dx++) {
+          let nx = (x + dx + gridSize) % gridSize, ny = (y + dy + gridSize) % gridSize;
+          count = count + cellsMatrix[ny][nx];
         }
-        return count - cellsMatrix[y][x];
+      }
+      return count - cellsMatrix[y][x];
 }
+
+    
 
 function getNextGeneration () {
     let newCellsMatrix = [];
