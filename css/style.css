@@ -80,7 +80,7 @@ h1 {
     gap: 30px;
 }
 
-button {
+#apply-btn, #play-btn {
     padding: 12.5px 30px;
     border: 0;
     border-radius: 5px;
@@ -90,14 +90,39 @@ button {
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
   }
-  
-button:hover {
-    background-color: #393E46;
+
+#clear-btn {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #F15A59;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+#clear-btn:hover {
+    background-color: #F15A59;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.24);
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+#clear-btn:active {
+    background-color: #F15A59;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
 }
   
-button:active {
+#play-btn:hover{
+    background-color: #393E46;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.24);
+    transform: scale(1.05);
+}
+  
+#play-btn:active, #apply-btn:active {
     background-color: #393E46;
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
@@ -105,6 +130,10 @@ button:active {
     transform: scale(0.98);
 }
 
+
+
+
+/*INPUT*/
 input{
     height: 2.5rem;
     border-radius: 5px;
@@ -112,7 +141,17 @@ input{
     font-size: large;
 }
 
+label{
+    text-align: left;
+}
+
 .size {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.group {
     display: flex;
     gap: 2px;
 }
