@@ -1,23 +1,22 @@
 body {
     text-align: center;
-    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
-    background-color: #E4F9F5;
+    font-family: "Gill Sans", sans-serif;;
+    background-color: #EEEEEE;
 
 }
 
 h1 {
-    color: #40514E;
-    font-size: 50px;
-    margin-bottom: 60px;
-    text-shadow: rgba(0, 0, 0, 0.24) 0px 10px 8px; 
+    color: #393E46;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
 
 }
 
-
-
 #container {
     display: flex;
-    gap: 150px;
+    gap: 50px;
     justify-content: center;
     user-select: none;
     padding-right: 150px;
@@ -36,13 +35,14 @@ h1 {
     display: flex;
     flex-direction: column;
     
+    
 }
 
 #grid {
     display: flex;
-    height: 480px;
-    width: 480px;
     
+    height: 600px;
+    width: 600px;
     background: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -56,6 +56,7 @@ h1 {
 
 .row {
    flex: 1;
+   border: 0.5px solid #EEEEEE;
 }
    
 
@@ -63,39 +64,58 @@ h1 {
 .cell {
     width: 10px;
     height: 10px;
-    background-color: white;
+    
 }
 
 .alive {
-    background-color: black;
+    background-color: #00ADB5;
 }
 
 /* BUTTONS */
 .buttons {
+    width: 180px;
     padding-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-   
+
+button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #393E46;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+  }
   
-/* FOOTER */
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 10px;
-  font-size: 20px;
-  padding-bottom: 0px;
-  font-size: 13px;
+button:hover {
+    background-color: #393E46;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.24);
+    transform: scale(1.1);
+}
+  
+button:active {
+    background-color: #393E46;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
 }
 
+input{
+    height: 2.5rem;
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+}
 
+.size {
+    display: flex;
+    gap: 2px;
+}
 
 
 

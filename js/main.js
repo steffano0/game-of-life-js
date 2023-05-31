@@ -57,7 +57,7 @@ function startGameOfLife() {
 }
 
 //Game functions
-function applyGridSize() {
+function applyGridSize () {
     const newGridSize = parseInt(gridSizeInput.value);
     if (newGridSize !== gridSize) {
         gridSize = newGridSize;
@@ -66,20 +66,19 @@ function applyGridSize() {
     
 }
 
-
-function initializeGrid(size) {
+function initializeGrid (gridSize) {
     // Clear the current grid
     grid.innerHTML = ""
     cells = [];
     cellsMatrix = [];
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < gridSize; i++) {
         let column = document.createElement("div");
         let columnElements = [];
-        cellsMatrix.push(new Array(size).fill(dead));
+        cellsMatrix.push(new Array(gridSize).fill(dead));
         cells.push(columnElements);
         column.className = "column";
         grid.appendChild(column);
-        for (let j = 0; j < size; j++) {
+        for (let j = 0; j < gridSize; j++) {
             let row = document.createElement("div");
             columnElements.push(row);
             row.className = "row";
@@ -103,19 +102,16 @@ function setInitialCellState () {
 function setNextCellState () {
     for (let y = 0; y < gridSize; y++) {
         for (let x = 0; x < gridSize; x++) {
-            if (cellsMatrix[y][x] == 1 && cells[y][x].classList.contains('alive') == false) {
+            if (cellsMatrix[y][x] == 1 && !cells[y][x].classList.contains('alive')) {
                 cells[y][x].classList.toggle('alive');
-            } else if (cellsMatrix[y][x] == 0 && cells[y][x].classList.contains('alive') == true) {
+            } else if (cellsMatrix[y][x] == 0 && cells[y][x].classList.contains('alive')) {
                 cells[y][x].classList.toggle('alive');
             }
-             
         }
-             
-          
-      }
+    }
 }
-
-function countLivingNeighbors(x, y) {
+            
+function countLivingNeighbors (x, y) {
     let count = 0;
         for (dy = -1; dy <= 1; dy++) {
           for (dx = -1; dx <= 1; dx++) {
@@ -126,7 +122,7 @@ function countLivingNeighbors(x, y) {
         return count - cellsMatrix[y][x];
 }
 
-function getNextGeneration() {
+function getNextGeneration () {
     let newCellsMatrix = [];
         for (let i = 0; i < gridSize; i++) {
           newCellsMatrix.push(new Array(gridSize).fill(dead));

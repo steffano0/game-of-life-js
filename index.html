@@ -10,12 +10,14 @@
     
 </head>
 <body>
-    <h1 class="title">Game of Life</h1>
+    <h1 class="title">Game-of-Life</h1>
     <div id="container">
-        <div id="canvas-size"></div>
         <div class="buttons">
-            <input type="number" id="grid-size" min="1" max="100" value="20">
-            <button id="apply-btn"><span>Apply</span></button>
+            <label for="grid-size">Size of the grid</label>
+            <div class="size">
+                <input type="number" id="grid-size" min="1" max="100" value="20">
+                <button id="apply-btn"><span>Apply</span></button>
+            </div>
             <button id="play-btn"><span>Play</span></button>
             <button id="clear-btn"><span>Clear</span></button>
         </div>
@@ -23,16 +25,6 @@
             <div id="grid"></div>
         </div>
     </div>
-    <footer class="footer">
-        <p>
-          Copyright ©
-          <script>
-            document.write(new Date().getFullYear())
-          </script>
-          <a href="https://github.com/steffano0" target="_blank">steffano0</a>
-          
-        </p>
-        
-    </footer>
+    
 </body>
 </html>
